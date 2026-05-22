@@ -73,7 +73,7 @@ border-color: rgba(255, 255, 255, 0.3);
 
     <!-- Navigation -->
     <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <div class="backdrop-blur-xl bg-black/70 border border-white/10 rounded-full px-6 py-4 flex items-center justify-between gap-12 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-white/20">
+        <div class="w-full max-w-2xl backdrop-blur-xl bg-black/70 border border-white/10 rounded-full px-6 py-4 flex items-center justify-between shadow-2xl shadow-black/50 transition-all duration-300 hover:border-white/20 relative">
             <a href="#" class="text-lg font-bold tracking-tighter uppercase text-white flex items-center gap-1">
                 SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse"></span>
             </a>
@@ -89,14 +89,22 @@ border-color: rgba(255, 255, 255, 0.3);
                 <span class="iconify" data-icon="lucide:arrow-up-right" data-width="16"></span>
             </a>
 
-            <button class="md:hidden text-white">
-                <span class="iconify" data-icon="lucide:menu" data-width="20"></span>
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-[#ea580c] transition-colors">
+                <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
             </button>
+
+            <!-- Mobile Dropdown -->
+            <div id="mobile-menu" class="absolute top-full mt-4 left-0 right-0 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 flex-col gap-6 items-center shadow-2xl hidden opacity-0 transition-opacity duration-300">
+                <a href="#vision" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Vision</a>
+                <a href="work.html" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Work</a>
+                <a href="#services" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Services</a>
+                <a href="#contact" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Contact</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col lg:flex-row bg-[#050505]">
+    <header class="relative w-full h-[100svh] min-h-[600px] md:min-h-[800px] overflow-hidden flex flex-col lg:flex-row bg-[#050505]">
         
         <!-- Left Content (Text) -->
         <div class="w-full lg:w-1/2 h-full flex flex-col justify-center px-8 lg:pl-24 lg:pr-12 z-20 pt-20 lg:pt-0">
@@ -219,11 +227,11 @@ border-color: rgba(255, 255, 255, 0.3);
                     <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-2 block">02 / Portfolio</span>
                     <h2 class="text-4xl font-semibold tracking-tighter text-white">Selected Works</h2>
                 </div>
-                <div class="flex items-center gap-6 mt-6 md:mt-0">
+                <div class="flex flex-wrap items-center gap-4 md:gap-6 mt-6 md:mt-0">
                     <button class="text-white text-sm font-medium border-b border-red-500 pb-1">All</button>
-                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1">Commercial</button>
-                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1">Music Video</button>
-                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1">Documentary</button>
+                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1 whitespace-nowrap">Commercial</button>
+                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1 whitespace-nowrap">Music Video</button>
+                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1 whitespace-nowrap">Documentary</button>
                 </div>
             </div>
 
@@ -356,7 +364,7 @@ border-color: rgba(255, 255, 255, 0.3);
             <div class="grid md:grid-cols-2 gap-0 border border-white/10 bg-black">
                 
                 <!-- Service 1 -->
-                <div class="group hover-border-glow p-10 border-r border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up">
+                <div class="group hover-border-glow p-8 md:p-10 border-b border-white/10 md:border-r hover:bg-white/[0.02] transition-colors fade-up">
                     <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
                         <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:pen-tool" data-width="24"></span>
                     </div>
@@ -365,7 +373,7 @@ border-color: rgba(255, 255, 255, 0.3);
                 </div>
 
                 <!-- Service 2 -->
-                <div class="group hover-border-glow p-10 border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
+                <div class="group hover-border-glow p-8 md:p-10 border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
                     <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
                         <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:layout" data-width="24"></span>
                     </div>
@@ -374,7 +382,7 @@ border-color: rgba(255, 255, 255, 0.3);
                 </div>
 
                 <!-- Service 3 -->
-                <div class="group hover-border-glow p-10 border-r border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
+                <div class="group hover-border-glow p-8 md:p-10 border-b md:border-b-0 border-white/10 md:border-r hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
                     <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
                         <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:hexagon" data-width="24"></span>
                     </div>
@@ -383,7 +391,7 @@ border-color: rgba(255, 255, 255, 0.3);
                 </div>
 
                 <!-- Service 4 -->
-                <div class="group hover-border-glow p-10 border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.3s;">
+                <div class="group hover-border-glow p-8 md:p-10 border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.3s;">
                     <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
                         <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:code-2" data-width="24"></span>
                     </div>
@@ -400,18 +408,18 @@ border-color: rgba(255, 255, 255, 0.3);
             <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-2 block">04 / Behind the Scenes</span>
             <h2 class="text-3xl font-semibold tracking-tighter text-white">On Location</h2>
         </div>
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px]">
-            <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-sm fade-up">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-4 auto-rows-[250px] md:auto-rows-auto md:h-[600px]">
+            <div class="sm:col-span-2 sm:row-span-2 relative group overflow-hidden rounded-sm fade-up">
                 <img src="potfolio/Screenshot 2026-05-19 at 12.38.31.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 1">
                 <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 text-[10px] text-white uppercase tracking-widest border border-white/10">Set Life</div>
             </div>
-            <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.1s;">
+            <div class="relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.1s;">
                  <img src="potfolio/PHOTO-2023-08-30-14-51-22 2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 2">
             </div>
-            <div class="col-span-1 row-span-2 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.2s;">
+            <div class="sm:row-span-2 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.2s;">
                  <img src="potfolio/Screenshot 2024-07-01 at 16.43.11.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 3">
             </div>
-            <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.3s;">
+            <div class="relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.3s;">
                  <img src="potfolio/Screenshot 2026-05-19 at 11.23.53.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 4">
             </div>
         </div>
@@ -420,9 +428,9 @@ border-color: rgba(255, 255, 255, 0.3);
     <!-- Contact Section -->
     <section id="contact" class="py-32 relative bg-neutral-950 border-t border-white/5 overflow-hidden">
         
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 relative z-10">
             <div class="fade-up">
-                <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter text-white mb-8">
+                <h2 class="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-8">
                     Let's make <br>
                     <span class="text-neutral-600">history.</span>
                 </h2>
@@ -497,6 +505,37 @@ border-color: rgba(255, 255, 255, 0.3);
     <!-- Simple Scroll Animation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+                        setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    } else {
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                        }, 300);
+                    }
+                });
+                
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                        }, 300);
+                    });
+                });
+            }
+
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
