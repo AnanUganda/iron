@@ -97,25 +97,18 @@ border-color: rgba(255, 255, 255, 0.3);
 
     <!-- Hero Section -->
     <header class="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex items-center justify-center bg-[#050505]">
-        <!-- Central Image Mask -->
-        <div class="absolute inset-0 z-0 flex items-center justify-center">
-            <div class="relative w-full max-w-4xl h-[80vh] mt-10" style="mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, black 30%, transparent 70%);">
-                <img src="potfolio/hero.JPG" class="w-full h-full object-cover object-top opacity-80" alt="Samson Iron">
-            </div>
-            <!-- Bottom fade for blending -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+        <!-- Central Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="potfolio/hero.JPG" class="w-full h-full object-cover object-top opacity-50 md:opacity-70" alt="Samson Iron">
+            <!-- Fade for blending -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505] opacity-90 md:opacity-80"></div>
+            <div class="absolute inset-0 bg-gradient-to-l from-[#050505] via-transparent to-[#050505] opacity-90 md:opacity-80"></div>
         </div>
 
-        <!-- Massive Overlapping Text (Moved outside max-w container to center to viewport) -->
-        <div class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-10 pointer-events-none fade-up" style="transition-delay: 0.4s;">
-            <h2 class="text-[15vw] font-bold tracking-tighter text-white leading-none whitespace-nowrap drop-shadow-2xl">
-                Samson
-            </h2>
-        </div>
-
-        <div class="relative z-10 w-full max-w-[1600px] mx-auto px-8 lg:px-16 flex flex-col justify-between h-full py-32">
+        <div class="relative z-10 w-full max-w-[1600px] mx-auto px-8 lg:px-16 flex flex-col justify-center h-full pb-[15vh]">
             
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mt-12 w-full z-20 gap-12 lg:gap-0">
+            <div class="flex flex-col lg:flex-row justify-between items-center w-full z-20 gap-12 lg:gap-0 mt-[-5vh]">
                 <!-- Left Column -->
                 <div class="max-w-md fade-up">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6">
@@ -145,34 +138,37 @@ border-color: rgba(255, 255, 255, 0.3);
             </div>
             
         </div>
+
+        <!-- Massive Overlapping Text (Moved to bottom) -->
+        <div class="absolute bottom-[-1vw] left-1/2 -translate-x-1/2 w-full text-center z-10 pointer-events-none fade-up" style="transition-delay: 0.4s;">
+            <h2 class="text-[20vw] font-bold tracking-tighter text-white leading-none whitespace-nowrap drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                Samson
+            </h2>
+        </div>
     </header>
 
     <!-- Infinite Marquee -->
     <div class="w-full bg-neutral-900/30 border-y border-white/5 py-6 overflow-hidden relative z-20 backdrop-blur-sm">
         <div class="flex whitespace-nowrap w-[200%] animate-scroll hover:[animation-play-state:paused]">
             <div class="flex items-center gap-12 mx-6">
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Cinematography</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Direction</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Post-Production</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Color Grading</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Sound Design</span>
-                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Graphics Design</span>
+                <span class="text-[#ea580c] text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">UI/UX Design</span>
+                <span class="text-[#ea580c] text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Logo Design</span>
+                <span class="text-[#ea580c] text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Web Development</span>
+                <span class="text-[#ea580c] text-xl">•</span>
             </div>
             <div class="flex items-center gap-12 mx-6">
-                 <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Cinematography</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Direction</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Post-Production</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Color Grading</span>
-                <span class="text-red-600 text-xl">•</span>
-                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Sound Design</span>
-                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Graphics Design</span>
+                <span class="text-[#ea580c] text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">UI/UX Design</span>
+                <span class="text-[#ea580c] text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Logo Design</span>
+                <span class="text-[#ea580c] text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Web Development</span>
+                <span class="text-[#ea580c] text-xl">•</span>
             </div>
         </div>
     </div>
@@ -361,69 +357,51 @@ border-color: rgba(255, 255, 255, 0.3);
     <!-- Services Grid -->
     <section id="services" class="py-32 relative overflow-hidden">
         <!-- Decoration -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ea580c]/10 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="mb-16 fade-up">
-                <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-2 block">03 / Expertise</span>
-                <h2 class="text-4xl font-semibold tracking-tighter text-white">Production Services</h2>
+                <span class="text-[#ea580c] font-mono text-xs uppercase tracking-widest mb-2 block">03 / Expertise</span>
+                <h2 class="text-4xl font-semibold tracking-tighter text-white">Design Services</h2>
             </div>
 
             <!-- Bento Grid Style -->
-            <div class="grid md:grid-cols-3 gap-0 border border-white/10 bg-black">
+            <div class="grid md:grid-cols-2 gap-0 border border-white/10 bg-black">
                 
                 <!-- Service 1 -->
                 <div class="group hover-border-glow p-10 border-r border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up">
-                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
-                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:film" data-width="24"></span>
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:pen-tool" data-width="24"></span>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Pre-Production</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">Concept development, scriptwriting, and storyboarding. We lay the foundation for visual excellence.</p>
+                    <h3 class="text-xl font-semibold text-white mb-3">Graphics Design</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Creating compelling visual narratives and print systems that communicate your brand's core message.</p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="group hover-border-glow p-10 border-r border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
-                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
-                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:video" data-width="24"></span>
+                <div class="group hover-border-glow p-10 border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:layout" data-width="24"></span>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Production</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">High-end cinematography, directing, and on-set management using state-of-the-art cinema gear.</p>
+                    <h3 class="text-xl font-semibold text-white mb-3">UI/UX Design</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Designing intuitive and engaging digital interfaces that enhance user experience and drive conversion.</p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="group hover-border-glow p-10 border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
-                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
-                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:scissors" data-width="24"></span>
+                <div class="group hover-border-glow p-10 border-r border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:hexagon" data-width="24"></span>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Post-Production</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">Editing, VFX, and sound mixing. We sculpt the raw footage into a polished narrative.</p>
+                    <h3 class="text-xl font-semibold text-white mb-3">Logo Design</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Crafting memorable and scalable brand marks that form the foundation of your visual identity.</p>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="group hover-border-glow p-10 border-r border-white/10 hover:bg-white/[0.02] transition-colors fade-up">
-                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
-                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:palette" data-width="24"></span>
+                <div class="group hover-border-glow p-10 border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.3s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-[#ea580c]/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-[#ea580c] transition-colors" data-icon="lucide:code-2" data-width="24"></span>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Color Grading</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">Defining mood and tone through expert color science. Davinci Resolve certified workflow.</p>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="group hover-border-glow p-10 border-r border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
-                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
-                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:music-2" data-width="24"></span>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Sound Design</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">Immersive audio landscapes that heighten emotional impact. Composition and SFX.</p>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="group hover-border-glow p-10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
-                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
-                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:monitor-play" data-width="24"></span>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Motion Graphics</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">2D and 3D animation to explain complex concepts or add flair to your visual identity.</p>
+                    <h3 class="text-xl font-semibold text-white mb-3">Web Development</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Building fast, responsive, and robust websites that bring our designs to life on the web.</p>
                 </div>
             </div>
         </div>
