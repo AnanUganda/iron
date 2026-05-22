@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio - Brand Designer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#111827',
+              orange: '#ea580c',
+              light: '#f9fafb'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .perspective-carousel {
+      perspective: 1000px;
+    }
+    .carousel-item {
+      transform-style: preserve-3d;
+      transition: all 0.5s ease;
+    }
+    .carousel-item:hover {
+      transform: translateZ(20px) rotateY(0deg) scale(1.05) !important;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body class="bg-brand-light text-brand-dark antialiased overflow-x-hidden selection:bg-brand-orange selection:text-white">
+
+  <!-- Main Container -->
+  <main class="max-w-[1440px] mx-auto p-4 md:p-6 lg:p-8 flex flex-col gap-8 md:gap-16">
+
+    <!-- Hero Section (Dark rounded container) -->
+    <section class="relative rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#9a3412] min-h-[85vh] flex flex-col justify-between pt-6 px-6 md:px-12 text-white">
+      
+      <!-- Nav -->
+      <nav class="flex justify-between items-center z-20 relative">
+        <div class="font-bold text-xl tracking-tight">Foliablox<span class="text-brand-orange">*</span></div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#" class="hover:text-brand-orange transition-colors">Home</a>
+          <a href="#" class="hover:text-brand-orange transition-colors">About</a>
+          <a href="work.html" class="hover:text-brand-orange transition-colors">Projects</a>
+        </div>
+        <a href="#" class="bg-white text-brand-dark px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-neutral-200 transition-colors">
+          Get in touch
+          <div class="w-2 h-2 rounded-full bg-brand-orange"></div>
+        </a>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 flex flex-col justify-center flex-grow pt-16 pb-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6 lg:pr-12">
+            <p class="text-brand-orange font-semibold tracking-wide mb-4 text-lg">Hey, I'm a</p>
+            <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-bold leading-[0.9] tracking-tighter mb-8">
+              Brand <br>Designer
+            </h1>
+            <div class="grid grid-cols-2 gap-8 text-xs font-medium text-white/70 uppercase tracking-widest mt-16 max-w-sm">
+              <div>
+                <span class="text-brand-orange mb-1 block">/01</span>
+                Brand Strategy
+              </div>
+              <div>
+                <span class="text-brand-orange mb-1 block">/02</span>
+                Brand Identity Design
+              </div>
+              <div>
+                <span class="text-brand-orange mb-1 block">/03</span>
+                Packaging Design
+              </div>
+              <div>
+                <span class="text-brand-orange mb-1 block">/04</span>
+                Creative Direction
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 text-right mt-12 lg:mt-0 flex flex-col items-end">
+             <h2 class="text-3xl md:text-4xl font-medium leading-tight max-w-md text-left lg:text-right">
+              Great design should feel invisible.
+            </h2>
+            <p class="text-white/60 mt-4 max-w-sm text-left lg:text-right text-sm leading-relaxed">
+              From logo to language, I build brands that connect and convert.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Portrait overlay -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] md:w-[60%] lg:w-[45%] h-[75%] z-10 pointer-events-none mix-blend-screen opacity-90">
+         <!-- Masking to blend at the bottom -->
+         <div class="absolute inset-0 bg-gradient-to-t from-[#9a3412] via-transparent to-transparent z-20"></div>
+         <img src="potfolio/hero.JPG" class="w-full h-full object-cover object-top mask-image-b" alt="Profile" style="mask-image: linear-gradient(to top, transparent 5%, black 40%); -webkit-mask-image: linear-gradient(to top, transparent 5%, black 40%);">
+      </div>
+
+      <!-- Trusted Bar -->
+      <div class="relative z-20 border-t border-white/20 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-white/80">
+        <div>Trusted by brands I've <br>helped shape</div>
+        <div class="flex gap-8 md:gap-12 flex-wrap justify-center">
+          <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full border-2 border-white"></div> Supa Blox</div>
+          <div class="flex items-center gap-2"><iconify-icon icon="mdi:hourglass"></iconify-icon> Hype Blox</div>
+          <div class="flex items-center gap-2"><div class="w-4 h-4 rounded bg-white/20"></div> Ultra Blox</div>
+          <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-white"></div> Frame Blox</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shaping Experiences -->
+    <section class="py-12 md:py-24 px-4 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
+        <div>
+          <h3 class="text-brand-orange font-semibold tracking-wide mb-4">Behind the Designs</h3>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter">
+            Shaping Experiences That Make Life Simpler
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 lg:pl-12">
+          <p class="text-lg font-medium max-w-sm">I'm a product designer focused on building clean, intuitive interfaces that solve real-world problems.</p>
+          <div class="flex flex-col gap-4">
+             <span class="text-sm text-neutral-500 font-medium">Let's Build Something Meaningful Together</span>
+             <a href="#" class="bg-brand-orange text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-between w-max gap-8 hover:bg-orange-700 transition-colors">
+              Get in touch <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-[400px] md:h-[600px]">
+        <div class="rounded-3xl overflow-hidden shadow-sm">
+          <img src="potfolio/Screenshot 2026-05-19 at 11.04.16.png" class="w-full h-full object-cover" alt="Portfolio item 1">
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-sm">
+          <img src="potfolio/Screenshot 2026-05-19 at 12.38.23.png" class="w-full h-full object-cover" alt="Portfolio item 2">
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-sm">
+          <img src="potfolio/PHOTO-2023-08-30-14-51-22 2.jpg" class="w-full h-full object-cover" alt="Portfolio item 3">
+        </div>
+      </div>
+    </section>
+
+    <!-- Perspective Carousel -->
+    <section class="py-12 md:py-24 bg-white rounded-3xl shadow-sm px-4 md:px-12 overflow-hidden flex flex-col items-center perspective-carousel">
+      <h3 class="text-brand-orange font-semibold tracking-wide mb-2 text-center">Behind the Designs</h3>
+      <h2 class="text-4xl md:text-5xl font-bold text-center tracking-tighter mb-4">Curious What Else I've<br>Created?</h2>
+      <p class="text-center text-neutral-500 mb-16 max-w-xl mx-auto">Explore more brand identities, packaging, and digital designs shaping my recent journey.</p>
+      
+      <div class="flex items-center justify-center gap-[-20px] w-full max-w-[1200px] mx-auto h-[400px] relative">
+        <!-- We will simulate the perspective with absolute positioning and transforms -->
+        <div class="carousel-item absolute left-[5%] w-1/5 h-[250px] rounded-2xl overflow-hidden shadow-lg z-10 opacity-70 cursor-pointer" style="transform: rotateY(25deg) scale(0.8);">
+          <img src="potfolio/Screenshot 2026-05-19 at 11.23.53.png" class="w-full h-full object-cover" alt="item">
+        </div>
+        <div class="carousel-item absolute left-[20%] w-1/5 h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 opacity-90 cursor-pointer" style="transform: rotateY(15deg) scale(0.9);">
+          <img src="potfolio/Screenshot 2026-05-19 at 12.31.00.png" class="w-full h-full object-cover" alt="item">
+        </div>
+        <div class="carousel-item absolute left-[40%] w-[25%] h-[350px] rounded-2xl overflow-hidden shadow-2xl z-30 cursor-pointer" style="transform: translateZ(20px);">
+          <img src="potfolio/Screenshot 2024-07-01 at 16.32.10.png" class="w-full h-full object-cover" alt="item">
+          <div class="absolute bottom-4 left-0 right-0 text-center text-white font-semibold shadow-black drop-shadow-md">Strategy & Planning</div>
+        </div>
+        <div class="carousel-item absolute right-[20%] w-1/5 h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 opacity-90 cursor-pointer" style="transform: rotateY(-15deg) scale(0.9);">
+          <img src="potfolio/Screenshot 2026-05-19 at 11.06.33.png" class="w-full h-full object-cover" alt="item">
+        </div>
+        <div class="carousel-item absolute right-[5%] w-1/5 h-[250px] rounded-2xl overflow-hidden shadow-lg z-10 opacity-70 cursor-pointer" style="transform: rotateY(-25deg) scale(0.8);">
+          <img src="potfolio/Screenshot 2024-10-28 at 20.45.00.png" class="w-full h-full object-cover" alt="item">
+        </div>
+      </div>
+      <a href="work.html" class="mt-8 text-brand-dark font-medium underline underline-offset-4 hover:text-brand-orange transition-colors">See All Projects</a>
+    </section>
+
+    <!-- Dark About -->
+    <section class="rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#0f172a] to-[#082f49] text-white p-8 md:p-16 relative shadow-sm">
+      <div class="relative z-20 flex justify-between items-start mb-24">
+        <div class="font-bold text-xl tracking-tight">Foliablox<span class="text-brand-orange">*</span></div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#" class="hover:text-brand-orange transition-colors">Home</a>
+          <a href="#" class="hover:text-brand-orange transition-colors">About</a>
+          <a href="work.html" class="hover:text-brand-orange transition-colors">Projects</a>
+        </div>
+        <a href="#" class="bg-white text-brand-dark px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2">
+          Get in touch
+          <div class="w-2 h-2 rounded-full bg-brand-orange"></div>
+        </a>
+      </div>
+
+      <div class="relative z-20 flex flex-col md:flex-row items-end justify-between mt-[20vh]">
+        <h2 class="text-6xl md:text-8xl font-bold tracking-tighter">About</h2>
+        <div class="text-right">
+          <p class="text-brand-orange font-semibold tracking-wide mb-2 text-sm uppercase">Brand Designer</p>
+          <p class="text-lg md:text-xl font-medium max-w-xs">The Person Behind the Work</p>
+        </div>
+      </div>
+
+      <!-- Center Portrait -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] md:w-[40%] h-[80%] z-10 mix-blend-luminosity opacity-80 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#082f49] via-transparent to-transparent z-20"></div>
+        <img src="potfolio/Screenshot 2026-05-19 at 12.39.01.png" class="w-full h-full object-cover object-top mask-image-b" alt="Profile 2" style="mask-image: linear-gradient(to top, transparent 0%, black 50%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 50%);">
+      </div>
+    </section>
+
+    <!-- Strategy First -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="flex flex-col gap-6">
+        <div class="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] shadow-sm">
+          <img src="potfolio/Screenshot 2024-06-22 at 12.47.27.png" class="w-full h-full object-cover" alt="Strategy First">
+          <div class="absolute bottom-6 left-6 text-white text-2xl font-bold drop-shadow-md">Strategy First</div>
+        </div>
+        <div class="bg-white rounded-3xl p-8 h-[200px] md:h-[250px] shadow-sm flex items-end">
+           <div class="text-2xl font-bold text-brand-dark">Future-Proof Systems</div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-6">
+        <div class="bg-brand-orange rounded-3xl p-8 h-[200px] md:h-[250px] shadow-sm flex items-end justify-end">
+           <div class="text-2xl font-bold text-white text-right">Design That Resonates</div>
+        </div>
+        <div class="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] shadow-sm">
+          <img src="potfolio/Screenshot 2024-07-13 at 20.23.26.png" class="w-full h-full object-cover" alt="Consistency">
+          <div class="absolute bottom-6 left-6 text-white text-2xl font-bold drop-shadow-md">Consistency Across Touchpoints</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Projects Grid -->
+    <section class="bg-white rounded-3xl p-8 md:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Left list -->
+      <div class="lg:col-span-5">
+        <h3 class="text-brand-orange font-semibold tracking-wide mb-2">Recent Work</h3>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-12">Latest Projects & Collaborations</h2>
+        
+        <div class="flex flex-col">
+          <div class="border-b border-neutral-100 py-6 flex justify-between items-center group cursor-pointer">
+            <div>
+              <p class="text-brand-orange text-xs font-semibold mb-1 uppercase tracking-wider">Brand Identity Design</p>
+              <p class="text-2xl font-bold group-hover:translate-x-2 transition-transform">Kin Studio</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-up-linear" class="text-neutral-400 group-hover:text-brand-dark transition-colors" style="font-size: 1.5rem;"></iconify-icon>
+          </div>
+          <div class="border-b border-neutral-100 py-6 flex justify-between items-center group cursor-pointer">
+            <div>
+              <p class="text-brand-orange text-xs font-semibold mb-1 uppercase tracking-wider">Packaging Design</p>
+              <p class="text-2xl font-bold group-hover:translate-x-2 transition-transform">Field Coffee Co.</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-up-linear" class="text-neutral-400 group-hover:text-brand-dark transition-colors" style="font-size: 1.5rem;"></iconify-icon>
+          </div>
+          <div class="border-b border-neutral-100 py-6 flex justify-between items-center group cursor-pointer">
+            <div>
+              <p class="text-brand-orange text-xs font-semibold mb-1 uppercase tracking-wider">Brand Strategy</p>
+              <p class="text-2xl font-bold group-hover:translate-x-2 transition-transform">Nord Agency</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-up-linear" class="text-neutral-400 group-hover:text-brand-dark transition-colors" style="font-size: 1.5rem;"></iconify-icon>
+          </div>
+          <div class="py-6 flex justify-between items-center group cursor-pointer">
+            <div>
+              <p class="text-brand-orange text-xs font-semibold mb-1 uppercase tracking-wider">Art Direction</p>
+              <p class="text-2xl font-bold group-hover:translate-x-2 transition-transform">Lune Journal</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-up-linear" class="text-neutral-400 group-hover:text-brand-dark transition-colors" style="font-size: 1.5rem;"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Grid -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <div class="rounded-2xl overflow-hidden h-[250px] shadow-sm mb-4">
+            <img src="potfolio/Screenshot 2026-05-19 at 10.57.24.png" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Orange Blox">
+          </div>
+          <h4 class="text-xl font-bold mb-1">Orange Blox</h4>
+          <p class="text-xs text-neutral-500 mb-2">The image shows flowing shapes in iridescent hues, from deep blues.</p>
+          <a href="#" class="text-brand-orange text-xs font-semibold flex items-center gap-1">View <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden h-[250px] shadow-sm mb-4">
+            <img src="potfolio/PHOTO-2023-09-01-17-46-49.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Nova Scene">
+          </div>
+          <h4 class="text-xl font-bold mb-1">Nova Scene</h4>
+          <p class="text-xs text-neutral-500 mb-2">The image shows flowing shapes in iridescent hues, from deep blues.</p>
+          <a href="#" class="text-brand-orange text-xs font-semibold flex items-center gap-1">View <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden h-[250px] shadow-sm mb-4">
+            <img src="potfolio/PHOTO-2023-08-30-14-51-22 3.jpg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Arched Pink">
+          </div>
+          <h4 class="text-xl font-bold mb-1">Arched Pink</h4>
+          <p class="text-xs text-neutral-500 mb-2">The image shows flowing shapes in iridescent hues, from deep blues.</p>
+          <a href="#" class="text-brand-orange text-xs font-semibold flex items-center gap-1">View <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden h-[250px] shadow-sm mb-4">
+            <img src="potfolio/Screenshot 2026-05-19 at 12.38.31.png" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Liquid">
+          </div>
+          <h4 class="text-xl font-bold mb-1">Liquid</h4>
+          <p class="text-xs text-neutral-500 mb-2">The image shows flowing shapes in iridescent hues, from deep blues.</p>
+          <a href="#" class="text-brand-orange text-xs font-semibold flex items-center gap-1">View <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-12 flex justify-center mt-8">
+          <a href="work.html" class="bg-brand-dark text-white px-8 py-4 rounded-full font-semibold hover:bg-neutral-800 transition-colors flex items-center gap-2">View Full Portfolio <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+      </div>
+    </section>
+
+    <!-- Final About -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-3xl p-8 md:p-16 flex flex-col justify-center shadow-sm">
+        <h3 class="text-brand-orange font-semibold tracking-wide mb-4">About me</h3>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight mb-6">
+          Designer. Strategist. Creative partner.
+        </h2>
+        <p class="text-lg font-medium mb-4">Blending clarity and creativity to build brands with purpose.</p>
+        <p class="text-neutral-500 text-sm leading-relaxed mb-8">
+          I'm dedicated to translating complex ideas into elegant visual systems. With a strong foundation in strategy, I approach every project aiming to align aesthetic appeal with core business objectives, ensuring the final result is as effective as it is engaging.
+        </p>
+        <img src="potfolio/Screenshot 2026-05-19 at 10.59.34.png" class="w-full h-32 object-cover rounded-xl mt-auto opacity-80" alt="Process">
+      </div>
+      <div class="rounded-3xl overflow-hidden h-[400px] md:h-auto shadow-sm">
+        <img src="potfolio/hero.JPG" class="w-full h-full object-cover" alt="Profile 3">
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white rounded-3xl p-8 md:p-12 flex flex-col items-center shadow-sm">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-8 text-center">Let's build something<br>meaningful together.</h2>
+      <a href="#" class="bg-brand-orange text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-2 hover:bg-orange-700 transition-colors mb-16">
+        Start a project <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+      </a>
+      <div class="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
+        <div>© 2026 My Portfolio. All rights reserved.</div>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Twitter</a>
+          <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+          <a href="#" class="hover:text-white transition-colors">Dribbble</a>
+          <a href="#" class="hover:text-white transition-colors">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>

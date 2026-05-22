@@ -1,0 +1,211 @@
+import os
+
+portfolio_dir = "potfolio"
+html_template = """<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work - SAMSON</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--cursor-size: 20px;
+}
+body {
+font-family: 'Manrope', sans-serif;
+background-color: #050505;
+color: #e5e5e5;
+cursor: default;
+}
+/* Noise Texture */
+.grain-overlay {
+position: fixed;
+top: 0; left: 0; width: 100%; height: 100%;
+pointer-events: none;
+z-index: 9999;
+opacity: 0.04;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+/* Smooth Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+
+.fade-up {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+opacity: 1;
+transform: translateY(0);
+}
+</style>
+</head>
+<body class="antialiased selection:bg-red-900/50 selection:text-white">
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <div class="backdrop-blur-xl bg-black/70 border border-white/10 rounded-full px-6 py-4 flex items-center justify-between gap-12 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-white/20">
+            <a href="index.html" class="text-lg font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse"></span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-widest text-neutral-400">
+                <a href="index.html#vision" class="hover:text-white transition-colors">Vision</a>
+                <a href="#" class="text-white transition-colors">Work</a>
+                <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+                <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <a href="index.html#contact" class="hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-white text-black hover:bg-neutral-200 transition-transform hover:scale-110">
+                <span class="iconify" data-icon="lucide:arrow-up-right" data-width="16"></span>
+            </a>
+
+            <button class="md:hidden text-white">
+                <span class="iconify" data-icon="lucide:menu" data-width="20"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-40 pb-20 px-6 text-center max-w-5xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-semibold tracking-tighter text-white leading-[0.9] mb-6 fade-up">
+            Our <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">Archive.</span>
+        </h1>
+        <p class="text-lg text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed fade-up" style="transition-delay: 0.1s;">
+            A complete collection of all visual production pieces, campaigns, and experimental photography.
+        </p>
+    </header>
+
+    <!-- Portfolio Grid -->
+    <section class="max-w-[1600px] mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {grid_items}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                SAMSON IRON<span class="text-[#ea580c]">.</span>
+            </a>
+            <p class="text-neutral-600 text-xs">© 2026 SAMSON IRON. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90vh] object-contain rounded-sm shadow-2xl scale-95 transition-transform duration-300 border border-white/10" alt="Full screen preview">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-red-500 p-2 transition-colors flex items-center justify-center">
+            <span class="iconify" data-icon="lucide:x" data-width="32"></span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Animation Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Lightbox Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            function openLightbox(src) {
+                lightboxImg.src = src;
+                lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.add('opacity-0', 'pointer-events-none');
+                lightboxImg.classList.remove('scale-100');
+                lightboxImg.classList.add('scale-95');
+                document.body.style.overflow = 'auto';
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
+            }
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    if(img) openLightbox(img.src);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !lightbox.classList.contains('opacity-0')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+"""
+
+# Get all image files from potfolio directory
+valid_exts = ['.jpg', '.jpeg', '.png', '.gif']
+files = [f for f in os.listdir(portfolio_dir) if os.path.splitext(f)[1].lower() in valid_exts]
+
+grid_items = ""
+for i, f in enumerate(files):
+    delay = (i % 4) * 0.1
+    item = f'''
+        <div class="gallery-item group relative aspect-[4/5] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up" style="transition-delay: {delay}s;">
+            <img src="potfolio/{f}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" loading="lazy" alt="Project {f}">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-500"></div>
+            
+            <div class="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white mb-3">
+                        <span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span>
+                    </span>
+                    <h3 class="text-lg font-semibold text-white tracking-tight">View Details</h3>
+                </div>
+            </div>
+        </div>
+    '''
+    grid_items += item
+
+final_html = html_template.replace("{grid_items}", grid_items)
+
+with open("work.html", "w") as out:
+    out.write(final_html)
+
+print("work.html generated successfully with dark theme!")

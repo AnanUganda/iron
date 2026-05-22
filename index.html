@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kabovelo Film Farm | Cinematic Production</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+--cursor-size: 20px;
+}
+body {
+font-family: 'Manrope', sans-serif;
+background-color: #050505;
+color: #e5e5e5;
+cursor: default;
+}
+/* Noise Texture */
+.grain-overlay {
+position: fixed;
+top: 0; left: 0; width: 100%; height: 100%;
+pointer-events: none;
+z-index: 9999;
+opacity: 0.04;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+/* Smooth Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+/* Utilities */
+.text-glow { text-shadow: 0 0 20px rgba(255,255,255,0.3); }
+/* Animations */
+@keyframes scroll {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+.animate-scroll { animation: scroll 30s linear infinite; }
+.fade-up {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+opacity: 1;
+transform: translateY(0);
+}
+/* Hover lines for grid */
+.hover-border-glow {
+position: relative;
+}
+.hover-border-glow::after {
+content: '';
+position: absolute;
+inset: 0;
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: border-color 0.3s ease;
+pointer-events: none;
+}
+.hover-border-glow:hover::after {
+border-color: rgba(255, 255, 255, 0.3);
+}
+</style>
+</head>
+<body class="antialiased selection:bg-red-900/50 selection:text-white">
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <div class="backdrop-blur-xl bg-black/70 border border-white/10 rounded-full px-6 py-4 flex items-center justify-between gap-12 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-white/20">
+            <a href="#" class="text-lg font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse"></span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-widest text-neutral-400">
+                <a href="#vision" class="hover:text-white transition-colors">Vision</a>
+                <a href="work.html" class="hover:text-white transition-colors">Work</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <a href="#contact" class="hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-white text-black hover:bg-neutral-200 transition-transform hover:scale-110">
+                <span class="iconify" data-icon="lucide:arrow-up-right" data-width="16"></span>
+            </a>
+
+            <button class="md:hidden text-white">
+                <span class="iconify" data-icon="lucide:menu" data-width="20"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex items-center justify-center bg-[#050505]">
+        <!-- Central Image Mask -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center">
+            <div class="relative w-full max-w-4xl h-[80vh] mt-10" style="mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, black 30%, transparent 70%);">
+                <img src="potfolio/hero.JPG" class="w-full h-full object-cover object-top opacity-80" alt="Samson Iron">
+            </div>
+            <!-- Bottom fade for blending -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+        </div>
+
+        <!-- Massive Overlapping Text (Moved outside max-w container to center to viewport) -->
+        <div class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-10 pointer-events-none fade-up" style="transition-delay: 0.4s;">
+            <h2 class="text-[15vw] font-bold tracking-tighter text-white leading-none whitespace-nowrap drop-shadow-2xl">
+                Samson
+            </h2>
+        </div>
+
+        <div class="relative z-10 w-full max-w-[1600px] mx-auto px-8 lg:px-16 flex flex-col justify-between h-full py-32">
+            
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mt-12 w-full z-20 gap-12 lg:gap-0">
+                <!-- Left Column -->
+                <div class="max-w-md fade-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ea580c] opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#ea580c]"></span>
+                        </span>
+                        <span class="text-[10px] font-semibold tracking-wider text-neutral-300">Available for Work</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-semibold tracking-tight text-white leading-[1.2]">
+                        I design brand identities, campaigns, and print systems for NGOs, schools, and businesses across Uganda and the U.S.
+                    </h1>
+                </div>
+
+                <!-- Right Column -->
+                <div class="max-w-xs fade-up" style="transition-delay: 0.2s;">
+                    <p class="text-sm text-neutral-400 font-light leading-relaxed mb-6">
+                        Hi, I'm Samson - a brand designer passionate about creating visually compelling identities and seamless experiences that connect and convert.
+                    </p>
+                    <a href="work.html" class="inline-flex items-center gap-3 px-6 py-3 bg-[#ea580c] hover:bg-[#c2410c] text-white text-sm font-medium rounded-full transition-colors group shadow-[0_0_20px_rgba(234,88,12,0.3)]">
+                        <span class="bg-white text-[#ea580c] rounded-full w-6 h-6 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                            <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+                        </span>
+                        See my works
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Infinite Marquee -->
+    <div class="w-full bg-neutral-900/30 border-y border-white/5 py-6 overflow-hidden relative z-20 backdrop-blur-sm">
+        <div class="flex whitespace-nowrap w-[200%] animate-scroll hover:[animation-play-state:paused]">
+            <div class="flex items-center gap-12 mx-6">
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Cinematography</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Direction</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Post-Production</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Color Grading</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Sound Design</span>
+                <span class="text-red-600 text-xl">•</span>
+            </div>
+            <div class="flex items-center gap-12 mx-6">
+                 <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Cinematography</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Direction</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Post-Production</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Color Grading</span>
+                <span class="text-red-600 text-xl">•</span>
+                <span class="text-4xl font-bold uppercase tracking-tighter text-white/10">Sound Design</span>
+                <span class="text-red-600 text-xl">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-5 fade-up sticky top-32">
+                    <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-4 block">01 / The Vision</span>
+                    <h2 class="text-4xl md:text-5xl font-semibold tracking-tighter text-white mb-8 leading-[1.1]">
+                        We don't just capture moments. <br><span class="text-neutral-500">We construct feelings.</span>
+                    </h2>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-8">
+                        Every frame is a decision. Every cut is a heartbeat. At Kabovelo, we operate at the intersection of raw emotion and technical precision. Our films are designed to linger in the mind long after the screen goes black.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+                        <div>
+                            <span class="block text-3xl font-bold text-white mb-1">50+</span>
+                            <span class="text-xs text-neutral-500 uppercase tracking-widest">Projects Shipped</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-bold text-white mb-1">12</span>
+                            <span class="text-xs text-neutral-500 uppercase tracking-widest">Global Awards</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7 grid gap-6 fade-up">
+                    <div class="relative aspect-video group overflow-hidden rounded-sm border border-white/5">
+                        <img src="potfolio/Screenshot 2026-05-19 at 11.24.47.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Vision image 1">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-xl font-medium text-white tracking-tight">Narrative Depth</h3>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="relative aspect-[4/5] group overflow-hidden rounded-sm border border-white/5">
+                            <img src="potfolio/Screenshot 2026-05-19 at 12.39.01.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0" alt="Vision image 2">
+                            <div class="absolute bottom-6 left-6">
+                                <h3 class="text-xl font-medium text-white tracking-tight">Lighting</h3>
+                            </div>
+                        </div>
+                        <div class="relative aspect-[4/5] group overflow-hidden rounded-sm border border-white/5">
+                            <img src="potfolio/PHOTO-2023-08-30-14-51-22 3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Vision image 3">
+                            <div class="absolute bottom-6 left-6">
+                                <h3 class="text-xl font-medium text-white tracking-tight">Composition</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Works -->
+    <section id="portfolio" class="py-32 bg-[#080808] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-up">
+                <div>
+                    <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-2 block">02 / Portfolio</span>
+                    <h2 class="text-4xl font-semibold tracking-tighter text-white">Selected Works</h2>
+                </div>
+                <div class="flex items-center gap-6 mt-6 md:mt-0">
+                    <button class="text-white text-sm font-medium border-b border-red-500 pb-1">All</button>
+                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1">Commercial</button>
+                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1">Music Video</button>
+                    <button class="text-neutral-500 text-sm font-medium hover:text-white transition-colors pb-1">Documentary</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                <!-- Project Card 1 -->
+                <div class="group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up">
+                    <img src="potfolio/Screenshot 2026-05-19 at 11.23.53.png" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 group-hover:opacity-100" alt="Project 1">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-500"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                        <div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-4 group-hover:translate-y-0">
+                            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-white border border-white/10">2023</span>
+                            <span class="iconify text-white rotate-45 group-hover:rotate-0 transition-transform duration-500" data-icon="lucide:arrow-up-right" data-width="20"></span>
+                        </div>
+                        <div class="translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-red-500 text-xs font-mono uppercase tracking-widest mb-2">Road Safety</p>
+                            <h3 class="text-2xl font-semibold text-white tracking-tight mb-2">Safety Watch Initiatives</h3>
+                            <p class="text-neutral-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">Led visual campaigns and social media design for a Ugandan road-safety NGO, helping increase engagement by 60% and content reach by 50%.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up" style="transition-delay: 0.1s;">
+                    <img src="potfolio/Screenshot 2026-05-19 at 12.31.00.png" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 group-hover:opacity-100" alt="M-VET Project">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                        <div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-4 group-hover:translate-y-0">
+                            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-white border border-white/10">2024</span>
+                            <span class="iconify text-white rotate-45 group-hover:rotate-0 transition-transform duration-500" data-icon="lucide:arrow-up-right" data-width="20"></span>
+                        </div>
+                        <div class="translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-red-500 text-xs font-mono uppercase tracking-widest mb-2">Education / Tech</p>
+                            <h3 class="text-2xl font-semibold text-white tracking-tight mb-2">Makerere AI Lab</h3>
+                            <p class="text-neutral-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">Designed brochures and brand collateral for Makerere University's AI livestock research initiative, translating technical research into accessible communication.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up" style="transition-delay: 0.2s;">
+                    <img src="potfolio/Screenshot 2024-06-22 at 12.47.27.png" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 group-hover:opacity-100" alt="Project 3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                        <div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-4 group-hover:translate-y-0">
+                            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-white border border-white/10">2023</span>
+                            <span class="iconify text-white rotate-45 group-hover:rotate-0 transition-transform duration-500" data-icon="lucide:arrow-up-right" data-width="20"></span>
+                        </div>
+                        <div class="translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-red-500 text-xs font-mono uppercase tracking-widest mb-2">Hospitality</p>
+                            <h3 class="text-2xl font-semibold text-white tracking-tight mb-2">Sowers Harvest Café</h3>
+                            <p class="text-neutral-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">Developed a full café identity system including logo suite, merchandise, and brand assets for a hospitality brand focused on community and conversation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up">
+                    <img src="potfolio/Screenshot 2024-07-01 at 16.32.10.png" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 group-hover:opacity-100" alt="Morgan Concrete">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                        <div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-4 group-hover:translate-y-0">
+                            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-white border border-white/10">2023</span>
+                            <span class="iconify text-white rotate-45 group-hover:rotate-0 transition-transform duration-500" data-icon="lucide:arrow-up-right" data-width="20"></span>
+                        </div>
+                        <div class="translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-red-500 text-xs font-mono uppercase tracking-widest mb-2">Construction</p>
+                            <h3 class="text-2xl font-semibold text-white tracking-tight mb-2">Morgan Concrete</h3>
+                            <p class="text-neutral-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 line-clamp-3">Created a rugged construction brand system rolled out across vehicle graphics, apparel, and brand guidelines for a Pennsylvania concrete company.</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project Card 5 -->
+                 <div class="group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up" style="transition-delay: 0.1s;">
+                    <img src="potfolio/Screenshot 2024-10-28 at 20.45.00.png" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 group-hover:opacity-100" alt="Project 5">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                        <div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-4 group-hover:translate-y-0">
+                            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-white border border-white/10">2024</span>
+                            <span class="iconify text-white rotate-45 group-hover:rotate-0 transition-transform duration-500" data-icon="lucide:arrow-up-right" data-width="20"></span>
+                        </div>
+                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-red-500 text-xs font-mono uppercase tracking-widest mb-2">Documentary</p>
+                            <h3 class="text-2xl font-semibold text-white tracking-tight">Terra Firma</h3>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project Card 6 -->
+                 <div class="group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up" style="transition-delay: 0.2s;">
+                    <img src="potfolio/Screenshot 2026-05-19 at 11.06.33.png" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 group-hover:opacity-100" alt="Project 6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                        <div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-4 group-hover:translate-y-0">
+                            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest text-white border border-white/10">2023</span>
+                            <span class="iconify text-white rotate-45 group-hover:rotate-0 transition-transform duration-500" data-icon="lucide:arrow-up-right" data-width="20"></span>
+                        </div>
+                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-red-500 text-xs font-mono uppercase tracking-widest mb-2">Tech</p>
+                            <h3 class="text-2xl font-semibold text-white tracking-tight">Quantum Leap</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-16 text-center fade-up">
+                <a href="work.html" class="inline-flex items-center justify-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors uppercase tracking-widest group">
+                    View Full Archive
+                    <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-32 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-16 fade-up">
+                <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-2 block">03 / Expertise</span>
+                <h2 class="text-4xl font-semibold tracking-tighter text-white">Production Services</h2>
+            </div>
+
+            <!-- Bento Grid Style -->
+            <div class="grid md:grid-cols-3 gap-0 border border-white/10 bg-black">
+                
+                <!-- Service 1 -->
+                <div class="group hover-border-glow p-10 border-r border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:film" data-width="24"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Pre-Production</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Concept development, scriptwriting, and storyboarding. We lay the foundation for visual excellence.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group hover-border-glow p-10 border-r border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:video" data-width="24"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Production</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">High-end cinematography, directing, and on-set management using state-of-the-art cinema gear.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group hover-border-glow p-10 border-b border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:scissors" data-width="24"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Post-Production</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Editing, VFX, and sound mixing. We sculpt the raw footage into a polished narrative.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group hover-border-glow p-10 border-r border-white/10 hover:bg-white/[0.02] transition-colors fade-up">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:palette" data-width="24"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Color Grading</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Defining mood and tone through expert color science. Davinci Resolve certified workflow.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="group hover-border-glow p-10 border-r border-white/10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:music-2" data-width="24"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Sound Design</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">Immersive audio landscapes that heighten emotional impact. Composition and SFX.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="group hover-border-glow p-10 hover:bg-white/[0.02] transition-colors fade-up" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-neutral-900 rounded-sm flex items-center justify-center mb-8 border border-white/5 group-hover:border-red-500/50 transition-colors">
+                        <span class="iconify text-neutral-300 group-hover:text-red-500 transition-colors" data-icon="lucide:monitor-play" data-width="24"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Motion Graphics</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">2D and 3D animation to explain complex concepts or add flair to your visual identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BTS Section (Masonry) -->
+    <section class="py-24 bg-[#080808]">
+        <div class="max-w-7xl mx-auto px-6 mb-12 fade-up">
+            <span class="text-red-500 font-mono text-xs uppercase tracking-widest mb-2 block">04 / Behind the Scenes</span>
+            <h2 class="text-3xl font-semibold tracking-tighter text-white">On Location</h2>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px]">
+            <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-sm fade-up">
+                <img src="potfolio/Screenshot 2026-05-19 at 12.38.31.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 1">
+                <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 text-[10px] text-white uppercase tracking-widest border border-white/10">Set Life</div>
+            </div>
+            <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.1s;">
+                 <img src="potfolio/PHOTO-2023-08-30-14-51-22 2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 2">
+            </div>
+            <div class="col-span-1 row-span-2 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.2s;">
+                 <img src="potfolio/Screenshot 2024-07-01 at 16.43.11.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 3">
+            </div>
+            <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-sm fade-up" style="transition-delay: 0.3s;">
+                 <img src="potfolio/Screenshot 2026-05-19 at 11.23.53.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" alt="BTS 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 relative bg-neutral-950 border-t border-white/5 overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 relative z-10">
+            <div class="fade-up">
+                <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter text-white mb-8">
+                    Let's make <br>
+                    <span class="text-neutral-600">history.</span>
+                </h2>
+                <p class="text-neutral-400 text-lg font-light mb-12 max-w-md">
+                    We are currently accepting new projects for Q4 2023. Reach out to discuss your vision.
+                </p>
+
+                <div class="space-y-8">
+                    <a href="mailto:eiseniron7@gmail.com" class="group flex items-center gap-6 text-white hover:text-red-500 transition-colors">
+                        <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-red-500 transition-colors">
+                            <span class="iconify" data-icon="lucide:mail" data-width="20"></span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-neutral-500 uppercase tracking-widest mb-1">Email Us</span>
+                            <span class="text-xl font-medium">eiseniron7@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex items-center gap-6 text-white hover:text-red-500 transition-colors">
+                        <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-red-500 transition-colors">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="20"></span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-neutral-500 uppercase tracking-widest mb-1">Follow Us</span>
+                            <span class="text-xl font-medium">@kabovelo.film</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-neutral-900/30 p-10 border border-white/10 rounded-sm backdrop-blur-sm fade-up" style="transition-delay: 0.2s;">
+                <form class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="group relative">
+                            <input type="text" id="name" class="peer w-full bg-transparent border-b border-neutral-700 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-transparent" placeholder="Name">
+                            <label for="name" class="absolute left-0 -top-3.5 text-xs text-neutral-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-500">Name</label>
+                        </div>
+                        <div class="group relative">
+                            <input type="email" id="email" class="peer w-full bg-transparent border-b border-neutral-700 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-transparent" placeholder="Email">
+                            <label for="email" class="absolute left-0 -top-3.5 text-xs text-neutral-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-500">Email</label>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative">
+                        <input type="text" id="budget" class="peer w-full bg-transparent border-b border-neutral-700 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-transparent" placeholder="Budget">
+                        <label for="budget" class="absolute left-0 -top-3.5 text-xs text-neutral-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-500">Estimated Budget</label>
+                    </div>
+
+                    <div class="group relative">
+                        <textarea id="message" rows="4" class="peer w-full bg-transparent border-b border-neutral-700 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-transparent resize-none" placeholder="Message"></textarea>
+                        <label for="message" class="absolute left-0 -top-3.5 text-xs text-neutral-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-500 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-500">Project Details</label>
+                    </div>
+
+                    <button class="w-full py-5 bg-white text-black font-semibold uppercase tracking-widest hover:bg-neutral-200 transition-all flex items-center justify-center gap-3 group">
+                        Send Inquiry
+                        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="18"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="#" class="text-xl font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                SAMSON IRON<span class="text-[#ea580c]">.</span>
+            </a>
+            <p class="text-neutral-600 text-xs">© 2026 SAMSON IRON. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
