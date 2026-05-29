@@ -1,0 +1,211 @@
+{
+  "09_Zion_Shelter": {
+    "id": "09_Zion_Shelter",
+    "name": "Zion Shelter",
+    "category": "Advertising & NGO Outreach",
+    "description": "Social impact design systems supporting family logistics and shelter initiatives. Features laptop stickers, Christmas charity flyer drives, and user registration application forms.",
+    "files": [
+      "named/09_Zion_Shelter/Zion Shelter X-mass charity Flyer.png",
+      "named/09_Zion_Shelter/Zion Shelter brand Identy (Laptop Stickers).png",
+      "named/09_Zion_Shelter/Zion Shelter brand identity: Application.png"
+    ]
+  },
+  "08_Inspire_Coffee": {
+    "id": "08_Inspire_Coffee",
+    "name": "Inspire Coffee Digital Fund",
+    "category": "UI / Web Design",
+    "description": "User experience mapping and interface visual designs for a digital coffee funding network. Features interactive web layout mockups, high-fidelity app screens, and custom roadside promotional rollup banners.",
+    "files": [
+      "named/08_Inspire_Coffee/Insipire digtal coffee fund ui .png",
+      "named/08_Inspire_Coffee/Inspire Digtal coffee fund UI design.png",
+      "named/08_Inspire_Coffee/Inspire coffee Fund Rollup banner.png"
+    ]
+  },
+  "01_His_Image_Ministries": {
+    "id": "01_His_Image_Ministries",
+    "name": "His Image Ministries (HIM)",
+    "category": "Brand Identity / NGO",
+    "description": "Comprehensive visual identity and campaign systems for East African outreach. This suite includes reflector apparel, silicon wristbands, signposts, and extensive trifold brochures outlining singlehood, marriage, and community health initiatives.",
+    "files": [
+      "named/01_His_Image_Ministries/HIM love them both campaign banner.png",
+      "named/01_His_Image_Ministries/HIM outdoor sign: poster for let's talk about life.png",
+      "named/01_His_Image_Ministries/Him & mercy for mamas katanga out reach flyer (social media).png",
+      "named/01_His_Image_Ministries/Him Apprel design (Reflector jacket).png",
+      "named/01_His_Image_Ministries/Him Silicon Wristbands.png",
+      "named/01_His_Image_Ministries/Him Social media flyer (celebrating motherhood).png",
+      "named/01_His_Image_Ministries/Him love them both Shirt design for campaign.png",
+      "named/01_His_Image_Ministries/Him social media flyer on Singlehood & marriage.png",
+      "named/01_His_Image_Ministries/His I mage Ministries Flyer.png",
+      "named/01_His_Image_Ministries/His Image Ministries  Trifold Broncure design.png",
+      "named/01_His_Image_Ministries/His image minstries (HIM) pen design impression.png",
+      "named/01_His_Image_Ministries/His image minstries MAP rollup banner design.png",
+      "named/01_His_Image_Ministries/His image minstries Social media Flyer MAP Program.png",
+      "named/01_His_Image_Ministries/His image minstries Tear drop banner.png"
+    ]
+  },
+  "05_Tukue_Pamoja": {
+    "id": "05_Tukue_Pamoja",
+    "name": "Tukue Pamoja",
+    "category": "Brand Identity & Apparel",
+    "description": "Corporate branding elements showcasing unity and community strength. Features apparel sweater-shirts, corporate business cards, and layout elements on trifold marketing brochures.",
+    "files": [
+      "named/05_Tukue_Pamoja/Tukue Pamoja barand identity Sweater Shirt.png",
+      "named/05_Tukue_Pamoja/Tukue Pamoja bussiness cards. brand identity.png",
+      "named/05_Tukue_Pamoja/Tukue pamoja logo on trifold broncure mockup.png",
+      "named/05_Tukue_Pamoja/Tukue pamoja logo.png"
+    ]
+  },
+  "03_Ekijul_Real_Estate": {
+    "id": "03_Ekijul_Real_Estate",
+    "name": "Ekijul Real Estate & Developers",
+    "category": "Brand Design & Identity",
+    "description": "Premium brand design for a premier real estate development firm in Uganda. Features clean typographic logos, branded industrial safety wear (construction helmets), corporate caps, notebook stationery, and keyholder mockups.",
+    "files": [
+      "named/03_Ekijul_Real_Estate/Ekijul Real estate & developeers logo.png",
+      "named/03_Ekijul_Real_Estate/Ekijul brand Identity (key holder).png",
+      "named/03_Ekijul_Real_Estate/Ekijul brand identity cap design.png",
+      "named/03_Ekijul_Real_Estate/Ekijul construction helment : brand identity.png",
+      "named/03_Ekijul_Real_Estate/Ekijul real esate & developers brand identity.png",
+      "named/03_Ekijul_Real_Estate/Ekijul real estate cape mockup :brand identity.png"
+    ]
+  },
+  "02_Makerere_AI_Lab_M_vet": {
+    "id": "02_Makerere_AI_Lab_M_vet",
+    "name": "Makerere AI Lab & M-vet",
+    "category": "UI / Web Design & Machine Learning",
+    "description": "High-fidelity UI graphics, infographics, certificates, and academic banners designed for the Mobile Veterinary Diagnostics (M-VET) and Automated Speech Translation initiatives. This includes visual assets for livestock dataset diagnostic hackathons.",
+    "files": [
+      "named/02_Makerere_AI_Lab_M_vet/M-VET Stickers.png",
+      "named/02_Makerere_AI_Lab_M_vet/M-VET UI design (Transforming the Agriculture world inforgraphics).png",
+      "named/02_Makerere_AI_Lab_M_vet/M-VET calendar.png",
+      "named/02_Makerere_AI_Lab_M_vet/M-VET certificate Design.png",
+      "named/02_Makerere_AI_Lab_M_vet/M-vet Hackathon Makerere.png",
+      "named/02_Makerere_AI_Lab_M_vet/M-vet Social media post (Datasets for Machine learning Diagnostics in Livestock).png",
+      "named/02_Makerere_AI_Lab_M_vet/M-vet machine learning for Livestock Hackton Rollup banner.png",
+      "named/02_Makerere_AI_Lab_M_vet/Machine learning for livestock Hackaton dummy awards (M-VET).png",
+      "named/02_Makerere_AI_Lab_M_vet/Makerere AI Lab & CV4A Cap design.png",
+      "named/02_Makerere_AI_Lab_M_vet/Makerere AI Lab Building machine transtion models for informal speech poster.png",
+      "named/02_Makerere_AI_Lab_M_vet/Makerere AI lab Automatic speech Recorgnition..png",
+      "named/02_Makerere_AI_Lab_M_vet/Makerere Ai lab posters Mining Radiocasts for Community percetion on COVID19 Using Automated Speech.png",
+      "named/02_Makerere_AI_Lab_M_vet/Makerere M-VET Leveraging data poster.png",
+      "named/02_Makerere_AI_Lab_M_vet/Mvet.png",
+      "named/02_Makerere_AI_Lab_M_vet/makerere Ai lab posters (Cassava).png"
+    ]
+  },
+  "06_Morgan_Concrete_Services": {
+    "id": "06_Morgan_Concrete_Services",
+    "name": "Morgan Concrete Services",
+    "category": "Brand Design / Industrial",
+    "description": "Heavy-duty industrial corporate brand suite tailored for civil engineering and concrete suppliers. Features heavy vehicle stickers, concrete mixer hood wraps, and premium concrete corporate apparel.",
+    "files": [
+      "named/06_Morgan_Concrete_Services/Morgan Concrete Services brand identity.jpg",
+      "named/06_Morgan_Concrete_Services/Morgan Concrete services apprel design Hoodie.jpg",
+      "named/06_Morgan_Concrete_Services/Morgan concrete services aprel design.jpg",
+      "named/06_Morgan_Concrete_Services/morgan concrete Services logo design.jpg"
+    ]
+  },
+  "13_Medium_Blog_Articles": {
+    "id": "13_Medium_Blog_Articles",
+    "name": "Medium Blog Articles",
+    "category": "Editorial & Insights",
+    "description": "Samson's published articles exploring the intersection of modern visual design, biomimicry, animal-inspired interfaces (waggle dance, cats eyes), first responder logistics, and design strategy.",
+    "files": [
+      "named/13_Medium_Blog_Articles/Blog post by Samson Iron (Navigating the Chaos).png",
+      "named/13_Medium_Blog_Articles/Blog post written by Samson Iron (How Animals could inspire the smart phones of the future).png",
+      "named/13_Medium_Blog_Articles/Blog post written by Samson Iron (The Cats Eyes and Road Safety).png",
+      "named/13_Medium_Blog_Articles/Blog post written by Samson Iron (The waggle dance).png",
+      "named/13_Medium_Blog_Articles/Blog posts published on Empowering First responders in uganda Written by samson Iron.png",
+      "named/13_Medium_Blog_Articles/Navigating the Chaos. Ablog post Writen by Samson and published on Medium.png"
+    ]
+  },
+  "11_Willowhill_Golden_Doodles": {
+    "id": "11_Willowhill_Golden_Doodles",
+    "name": "Willowhill Golden Doodles",
+    "category": "Brand Design / Identity",
+    "description": "Elegant pet-breeder visual identity suite, featuring corporate typographic logos and visual assets designed to reflect warmth and credibility.",
+    "files": [
+      "named/11_Willowhill_Golden_Doodles/Willowhill golden doodles brand ideintity.jpg",
+      "named/11_Willowhill_Golden_Doodles/Willowhill golden doodles brand identity design.jpg"
+    ]
+  },
+  "12_Mbarara_Junior_School": {
+    "id": "12_Mbarara_Junior_School",
+    "name": "Mbarara Junior School",
+    "category": "Branding & Print",
+    "description": "Cohesive primary school branding features, including beautifully illustrated exercise book covers, class timetables, and creative academic stationery layouts.",
+    "files": [
+      "named/12_Mbarara_Junior_School/Mbarara Junior School exercise book cover design.png",
+      "named/12_Mbarara_Junior_School/Mbarara junior execise book design opt2.png"
+    ]
+  },
+  "07_Sawers_Harvest_Cafe": {
+    "id": "07_Sawers_Harvest_Cafe",
+    "name": "Sawers Harvest Cafe",
+    "category": "Brand & Packaging Design",
+    "description": "Artisanal beverage startup branding based in Kampala. Features premium eco-friendly coffee cup patterns, custom beverage bottles, and rich typographic logo variations for local cafe placement.",
+    "files": [
+      "named/07_Sawers_Harvest_Cafe/Sawers harvest  cafe brand identity (coffee cup) .jpg",
+      "named/07_Sawers_Harvest_Cafe/Sawers harvest brand identity design.jpg",
+      "named/07_Sawers_Harvest_Cafe/sawers harvest cafe brand identity Water bottle.jpg",
+      "named/07_Sawers_Harvest_Cafe/sawers havest Cafe logo design.jpg"
+    ]
+  },
+  "10_Antioch_Resource_Center": {
+    "id": "10_Antioch_Resource_Center",
+    "name": "Antioch Christian Resource Center",
+    "category": "Advertising Design",
+    "description": "Strategic promotional campaigns and outdoor posters designed to expand community access to inductive Bible courses and regional workshops.",
+    "files": [
+      "named/10_Antioch_Resource_Center/Antioch Christian Resource Center Services flyer.png",
+      "named/10_Antioch_Resource_Center/Antioch Christian Resource Center inductive bible outdoor poster..png"
+    ]
+  },
+  "14_Miscellaneous": {
+    "id": "14_Miscellaneous",
+    "name": "Miscellaneous & Collaborations",
+    "category": "Design Collection",
+    "description": "A collection of individual visual pieces, campaign posters, national celebrations (Uganda Independence apparel), FRC brand logos, and cooperative foundation plaques designed for UNICEF, Netherlands Embassy, and Rotaract Kampala.",
+    "files": [
+      "named/14_Miscellaneous/A rise Uganda (Celebrating Ugana's Indpendence).png",
+      "named/14_Miscellaneous/Ami all purpose floor packaging design.png",
+      "named/14_Miscellaneous/BH motion brand identity.png",
+      "named/14_Miscellaneous/Brooks Landscape Brand identity design.png",
+      "named/14_Miscellaneous/FAbre African  music logo design .png",
+      "named/14_Miscellaneous/FRC brand design.png",
+      "named/14_Miscellaneous/Government of Netherlands & European Union foundation mable plaque design (Yumbe).png",
+      "named/14_Miscellaneous/Hearkenth house ministry logo design.png",
+      "named/14_Miscellaneous/Hopeland High school banner design for Grand Annual Music Dance & Drama Festival 2025.png",
+      "named/14_Miscellaneous/Jinako Engineering works note book (branding).png",
+      "named/14_Miscellaneous/Learning Hub Shirt design.png",
+      "named/14_Miscellaneous/Mak-CAD center projects 2025.png",
+      "named/14_Miscellaneous/Screenshot 2026-05-19 at 12.48.23.png",
+      "named/14_Miscellaneous/Screenshot 2026-05-19 at 13.01.49.png",
+      "named/14_Miscellaneous/Seinto landscape logo: brand identity .png",
+      "named/14_Miscellaneous/The Fig tree & vine Foundation Logo design.png",
+      "named/14_Miscellaneous/Ugandan inpendence Apprel design.png",
+      "named/14_Miscellaneous/Unicef with support from the Government of netherlands foundation plaque.png",
+      "named/14_Miscellaneous/Village for every child logo design : brand identity.png",
+      "named/14_Miscellaneous/Your Pressious In His Sight Book Layout Published by Strength to Strength (S2S).png",
+      "named/14_Miscellaneous/Your precious in his sight book layout..png",
+      "named/14_Miscellaneous/millers construction appr.png",
+      "named/14_Miscellaneous/profile photo_2787 4.JPG",
+      "named/14_Miscellaneous/rotarct kampala & the polish foundation Africa.png"
+    ]
+  },
+  "04_Kazo_Technical_School": {
+    "id": "04_Kazo_Technical_School",
+    "name": "Kazo Technical School",
+    "category": "Advertising & Print Campaign",
+    "description": "Academic promotion suite designed to expand enrollment and drive registrations. Includes physical awards plaques, teardrop advertising banners, roadside rollup banners, vehicular stickers, and strategic enrollment brochures.",
+    "files": [
+      "named/04_Kazo_Technical_School/KAZO TECH SCH TEAR DROPS minmal white print 2.pdf",
+      "named/04_Kazo_Technical_School/Kazo Technical School Award Plaque.jpg",
+      "named/04_Kazo_Technical_School/Kazo Technical Shool Teardrop banner design.png",
+      "named/04_Kazo_Technical_School/Kazo technical School rollup banner design.png",
+      "named/04_Kazo_Technical_School/Kazo technical School sticker design.png",
+      "named/04_Kazo_Technical_School/Kazo technical school Apprel design (reflector jact).png",
+      "named/04_Kazo_Technical_School/Kazo technical school registration in progress for new class.png",
+      "named/04_Kazo_Technical_School/Kazo technicale school social media flyer.png"
+    ]
+  }
+}

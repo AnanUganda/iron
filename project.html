@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Details | Samson Iron</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #050505;
+    color: #e5e5e5;
+    cursor: default;
+}
+/* Noise Texture */
+.grain-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+/* Smooth Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+<body class="antialiased selection:bg-red-900/50 selection:text-white">
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-6 left-0 right-0 z-40 flex justify-center px-4 md:px-6 pointer-events-none">
+        <div class="w-full max-w-2xl md:max-w-7xl backdrop-blur-xl bg-black/70 border border-white/10 rounded-full px-6 py-4 flex items-center justify-between shadow-2xl shadow-black/50 transition-all duration-300 hover:border-white/20 relative pointer-events-auto">
+            
+            <div class="flex-1 md:hidden"></div>
+
+            <a href="index.html" class="text-lg font-bold tracking-tighter uppercase text-white flex items-center justify-center md:justify-start gap-1 shrink-0">
+                SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse"></span>
+            </a>
+            
+            <div class="flex-1 flex justify-end">
+                <!-- Mobile Trigger -->
+                <button id="mobile-menu-btn" class="md:hidden text-white hover:text-[#ea580c] transition-colors">
+                    <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+                </button>
+                
+                <!-- Desktop Trigger -->
+                <button id="desktop-menu-btn" class="hidden md:flex text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="text-xs uppercase tracking-wider font-semibold">Menu</span>
+                    <span class="iconify" data-icon="lucide:menu" data-width="20"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown -->
+            <div id="mobile-menu" class="absolute top-full mt-4 left-0 right-0 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 flex-col gap-6 items-center shadow-2xl hidden opacity-0 transition-opacity duration-300">
+                <a href="index.html#vision" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Vision</a>
+                <a href="work.html" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Work</a>
+                <a href="blog.html" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Blog</a>
+                <a href="index.html#services" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Services</a>
+                <a href="index.html#contact" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full Viewport Navigation Overlay -->
+    <div id="viewport-menu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-3xl flex flex-col justify-between p-8 md:p-16 transition-all duration-500 opacity-0 pointer-events-none translate-y-[-20px]">
+        <!-- Top Bar inside overlay -->
+        <div class="flex justify-between items-center w-full">
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c]"></span>
+            </a>
+            <button id="viewport-menu-close" class="text-neutral-400 hover:text-white transition-colors p-2">
+                <span class="iconify" data-icon="lucide:x" data-width="28"></span>
+            </button>
+        </div>
+
+        <!-- Links in the Center -->
+        <div class="flex flex-col gap-6 md:gap-8 my-auto pl-4 md:pl-12">
+            <a href="index.html" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Home <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 01</span>
+            </a>
+            <a href="index.html#vision" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Vision <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 02</span>
+            </a>
+            <a href="work.html" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Portfolio <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 03</span>
+            </a>
+            <a href="blog.html" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Blog <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 04</span>
+            </a>
+            <a href="index.html#services" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Services <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 05</span>
+            </a>
+            <a href="index.html#contact" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Contact <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 06</span>
+            </a>
+        </div>
+
+        <!-- Footer inside overlay -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-t border-white/10 pt-8 w-full">
+            <div>
+                <span class="block text-xs text-neutral-500 uppercase tracking-widest mb-2">Location</span>
+                <span class="text-sm font-medium text-neutral-300 flex items-center gap-2">
+                    <span class="iconify text-[#ea580c]" data-icon="lucide:map-pin" data-width="16"></span>
+                    Kampala, Uganda
+                </span>
+            </div>
+            <div>
+                <span class="block text-xs text-neutral-500 uppercase tracking-widest mb-2">Socials</span>
+                <div class="flex gap-6">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="iconify" data-icon="lucide:facebook" data-width="16"></span> Facebook
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="iconify" data-icon="lucide:twitter" data-width="16"></span> X
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-6 pt-40 pb-32 min-h-[70vh]">
+        
+        <!-- Loading State -->
+        <div id="loading-state" class="flex flex-col items-center justify-center py-20 gap-4">
+            <span class="iconify text-[#ea580c] animate-spin" data-icon="lucide:loader-2" data-width="48"></span>
+            <p class="text-neutral-400 text-sm font-mono uppercase tracking-widest">Loading project files...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="hidden flex-col items-center justify-center text-center py-20 max-w-md mx-auto gap-6">
+            <span class="iconify text-red-500" data-icon="lucide:alert-circle" data-width="64"></span>
+            <div>
+                <h2 class="text-2xl font-bold tracking-tight text-white mb-2">Project Not Found</h2>
+                <p class="text-neutral-400 font-light text-sm">The project ID requested does not exist or has no files associated with it.</p>
+            </div>
+            <a href="index.html" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors text-sm">
+                Return to Homepage
+            </a>
+        </div>
+
+        <!-- Project Content (Loaded Dynamically) -->
+        <div id="project-content" class="hidden">
+            <!-- Header Block -->
+            <div class="border-b border-white/10 pb-12 mb-12">
+                <a href="index.html#portfolio" class="inline-flex items-center gap-2 text-neutral-400 hover:text-[#ea580c] transition-colors text-xs font-mono uppercase tracking-widest mb-6">
+                    <span class="iconify" data-icon="lucide:arrow-left" data-width="16"></span> Back to works
+                </a>
+                <span id="proj-category" class="text-red-500 font-mono text-xs uppercase tracking-widest mb-3 block">Category</span>
+                <h1 id="proj-title" class="text-5xl md:text-7xl font-semibold tracking-tighter text-white leading-none mb-6">Project Title</h1>
+                <p id="proj-desc" class="text-lg text-neutral-400 font-light max-w-3xl leading-relaxed">Project description paragraph.</p>
+            </div>
+
+            <!-- Sorting & Metrics Bar -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-neutral-950 p-4 border border-white/5 rounded-lg">
+                <div class="text-sm font-mono text-neutral-400">
+                    Showing <span id="files-count" class="text-white font-semibold">0</span> assets
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono uppercase text-neutral-500 whitespace-nowrap">Sort By</span>
+                    <select id="sort-select" class="bg-neutral-900 border border-white/10 rounded px-3 py-1.5 text-xs text-white focus:outline-none focus:border-[#ea580c] cursor-pointer">
+                        <option value="name-asc">File Name (A-Z)</option>
+                        <option value="name-desc">File Name (Z-A)</option>
+                        <option value="type">File Type</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Files Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="files-grid">
+                <!-- Injected Dynamically -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                    SAMSON IRON<span class="text-[#ea580c]">.</span>
+                </a>
+                <p class="text-neutral-500 text-xs flex items-center gap-1">
+                    <span class="iconify text-[#ea580c]" data-icon="lucide:map-pin" data-width="12"></span> Kampala, Uganda
+                </p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span class="iconify" data-icon="lucide:facebook" data-width="14"></span> Facebook
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span class="iconify" data-icon="lucide:twitter" data-width="14"></span> X
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span class="iconify" data-icon="lucide:linkedin" data-width="14"></span> LinkedIn
+                </a>
+            </div>
+
+            <p class="text-neutral-600 text-xs">© 2026 SAMSON IRON. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90vh] object-contain rounded-sm shadow-2xl scale-95 transition-transform duration-300 border border-white/10" alt="Full screen preview">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-red-500 p-2 transition-colors flex items-center justify-center">
+            <span class="iconify" data-icon="lucide:x" data-width="32"></span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Dropdown Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+                        setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    } else {
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                        }, 300);
+                    }
+                });
+            }
+
+            // Desktop Viewport Overlay Menu Toggle
+            const desktopBtn = document.getElementById('desktop-menu-btn');
+            const viewportMenu = document.getElementById('viewport-menu');
+            const viewportCloseBtn = document.getElementById('viewport-menu-close');
+            
+            if (desktopBtn && viewportMenu) {
+                desktopBtn.addEventListener('click', () => {
+                    viewportMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                    viewportMenu.classList.add('opacity-100', 'translate-y-0');
+                    document.body.style.overflow = 'hidden'; // lock scroll
+                });
+            }
+            
+            function closeViewportMenu() {
+                if (viewportMenu) {
+                    viewportMenu.classList.remove('opacity-100', 'translate-y-0');
+                    viewportMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                    document.body.style.overflow = ''; // restore scroll
+                }
+            }
+            
+            if (viewportCloseBtn) {
+                viewportCloseBtn.addEventListener('click', closeViewportMenu);
+            }
+            
+            if (viewportMenu) {
+                viewportMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeViewportMenu);
+                });
+            }
+
+            // Dynamic Project Loading & State Management
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+
+            const loadingState = document.getElementById('loading-state');
+            const errorState = document.getElementById('error-state');
+            const projectContent = document.getElementById('project-content');
+            const filesGrid = document.getElementById('files-grid');
+
+            let currentProjectFiles = [];
+
+            if (!projectId) {
+                showError();
+            } else {
+                fetch('projects-manifest.json')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network error loading manifest');
+                        return response.json();
+                    })
+                    .then(manifest => {
+                        const project = manifest[projectId];
+                        if (!project || !project.files || project.files.length === 0) {
+                            showError();
+                        } else {
+                            renderProject(project);
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        showError();
+                    });
+            }
+
+            function showError() {
+                loadingState.classList.add('hidden');
+                errorState.classList.remove('hidden');
+            }
+
+            function renderProject(project) {
+                // Populate project header info
+                document.getElementById('proj-category').textContent = project.category;
+                document.getElementById('proj-title').textContent = project.name;
+                document.getElementById('proj-desc').textContent = project.description;
+                document.title = `${project.name} | Samson Iron`;
+
+                currentProjectFiles = [...project.files];
+                
+                // Show content
+                loadingState.classList.add('hidden');
+                projectContent.classList.remove('hidden');
+
+                // Initial render of files
+                sortAndRenderFiles('name-asc');
+
+                // Bind sort control
+                const sortSelect = document.getElementById('sort-select');
+                sortSelect.addEventListener('change', (e) => {
+                    sortAndRenderFiles(e.target.value);
+                });
+            }
+
+            function sortAndRenderFiles(sortBy) {
+                const files = [...currentProjectFiles];
+
+                if (sortBy === 'name-asc') {
+                    files.sort((a, b) => getFileName(a).localeCompare(getFileName(b)));
+                } else if (sortBy === 'name-desc') {
+                    files.sort((a, b) => getFileName(b).localeCompare(getFileName(a)));
+                } else if (sortBy === 'type') {
+                    files.sort((a, b) => getFileExt(a).localeCompare(getFileExt(b)));
+                }
+
+                // Render grid
+                filesGrid.innerHTML = '';
+                document.getElementById('files-count').textContent = files.length;
+
+                files.forEach((filePath, index) => {
+                    const fileName = getFileName(filePath);
+                    const fileExt = getFileExt(filePath).toUpperCase();
+                    const isPDF = fileExt === 'PDF';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'group relative aspect-[3/4] overflow-hidden cursor-pointer rounded-sm border border-white/5 fade-up';
+                    card.style.animationDelay = `${(index % 3) * 0.1}s`;
+                    
+                    // Template logic
+                    let assetHtml = '';
+                    if (isPDF) {
+                        // PDF display (iconic mockup look)
+                        assetHtml = `
+                            <div class="w-full h-full bg-[#111] flex flex-col items-center justify-center p-8 text-center border border-white/10 group-hover:border-[#ea580c]/50 transition-colors">
+                                <span class="iconify text-[#ea580c] mb-4" data-icon="lucide:file-text" data-width="48"></span>
+                                <span class="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">${fileExt} Document</span>
+                                <h4 class="text-sm font-semibold text-white line-clamp-3 leading-snug">${fileName}</h4>
+                            </div>
+                        `;
+                    } else {
+                        // Image display (full fluid rendering)
+                        assetHtml = `
+                            <img src="${filePath}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale group-hover:grayscale-0" loading="lazy" alt="${fileName}">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-500"></div>
+                            <div class="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white mb-2">
+                                        <span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span>
+                                    </span>
+                                    <h4 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-1">Image Spec</h4>
+                                    <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">${fileName}</h3>
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    card.innerHTML = assetHtml;
+
+                    // Bind click for zoom (for non-PDFs)
+                    if (!isPDF) {
+                        card.addEventListener('click', () => {
+                            openLightbox(filePath);
+                        });
+                    } else {
+                        // Open PDF in a new tab
+                        card.addEventListener('click', () => {
+                            window.open(filePath, '_blank');
+                        });
+                    }
+
+                    filesGrid.appendChild(card);
+                    
+                    // Simple trigger for fade-in animations
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, 50);
+                });
+            }
+
+            function getFileName(path) {
+                const parts = path.split('/');
+                const baseName = parts[parts.length - 1];
+                return baseName.substring(0, baseName.lastIndexOf('.')) || baseName;
+            }
+
+            function getFileExt(path) {
+                return path.split('.').pop().toLowerCase();
+            }
+
+            // Lightbox Zoom Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+
+            function openLightbox(src) {
+                lightboxImg.src = src;
+                lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.add('opacity-0', 'pointer-events-none');
+                lightboxImg.classList.remove('scale-100');
+                lightboxImg.classList.add('scale-95');
+                document.body.style.overflow = '';
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !lightbox.classList.contains('opacity-0')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
