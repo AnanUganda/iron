@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Insights | Samson Iron</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #050505;
+    color: #e5e5e5;
+    cursor: default;
+}
+/* Noise Texture */
+.grain-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+/* Smooth Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+<body class="antialiased selection:bg-red-900/50 selection:text-white">
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-6 left-0 right-0 z-40 flex justify-center px-4 md:px-6 pointer-events-none">
+        <div class="w-full max-w-2xl md:max-w-7xl backdrop-blur-xl bg-black/70 border border-white/10 rounded-full px-6 py-4 flex items-center justify-between shadow-2xl shadow-black/50 transition-all duration-300 hover:border-white/20 relative pointer-events-auto">
+            
+            <div class="flex-1 md:hidden"></div>
+
+            <a href="index.html" class="text-lg font-bold tracking-tighter uppercase text-white flex items-center justify-center md:justify-start gap-1 shrink-0">
+                SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse"></span>
+            </a>
+            
+            <div class="flex-1 flex justify-end">
+                <!-- Mobile Trigger (Original mobile menu hamburger button) -->
+                <button id="mobile-menu-btn" class="md:hidden text-white hover:text-[#ea580c] transition-colors">
+                    <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+                </button>
+                
+                <!-- Desktop Trigger (New premium desktop menu button) -->
+                <button id="desktop-menu-btn" class="hidden md:flex text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="text-xs uppercase tracking-wider font-semibold">Menu</span>
+                    <span class="iconify" data-icon="lucide:menu" data-width="20"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown (Original absolute bubble style) -->
+            <div id="mobile-menu" class="absolute top-full mt-4 left-0 right-0 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 flex-col gap-6 items-center shadow-2xl hidden opacity-0 transition-opacity duration-300">
+                <a href="index.html#vision" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Vision</a>
+                <a href="work.html" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Work</a>
+                <a href="blog.html" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Blog</a>
+                <a href="index.html#services" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Services</a>
+                <a href="index.html#contact" class="text-sm font-medium uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full Viewport Navigation Overlay -->
+    <div id="viewport-menu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-3xl flex flex-col justify-between p-8 md:p-16 transition-all duration-500 opacity-0 pointer-events-none translate-y-[-20px]">
+        <!-- Top Bar inside overlay -->
+        <div class="flex justify-between items-center w-full">
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                SAMSON IRON<span class="w-1.5 h-1.5 rounded-full bg-[#ea580c]"></span>
+            </a>
+            <button id="viewport-menu-close" class="text-neutral-400 hover:text-white transition-colors p-2">
+                <span class="iconify" data-icon="lucide:x" data-width="28"></span>
+            </button>
+        </div>
+
+        <!-- Links in the Center -->
+        <div class="flex flex-col gap-6 md:gap-8 my-auto pl-4 md:pl-12">
+            <a href="index.html" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Home <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 01</span>
+            </a>
+            <a href="index.html#vision" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Vision <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 02</span>
+            </a>
+            <a href="work.html" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Portfolio <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 03</span>
+            </a>
+            <a href="blog.html" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Blog <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 04</span>
+            </a>
+            <a href="index.html#services" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Services <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 05</span>
+            </a>
+            <a href="index.html#contact" class="text-4xl md:text-7xl font-semibold tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 uppercase w-fit group flex items-center gap-4">
+                Contact <span class="text-sm font-mono text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity">/ 06</span>
+            </a>
+        </div>
+
+        <!-- Footer inside overlay -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-t border-white/10 pt-8 w-full">
+            <div>
+                <span class="block text-xs text-neutral-500 uppercase tracking-widest mb-2">Location</span>
+                <span class="text-sm font-medium text-neutral-300 flex items-center gap-2">
+                    <span class="iconify text-[#ea580c]" data-icon="lucide:map-pin" data-width="16"></span>
+                    Kampala, Uganda
+                </span>
+            </div>
+            <div>
+                <span class="block text-xs text-neutral-500 uppercase tracking-widest mb-2">Socials</span>
+                <div class="flex gap-6">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="iconify" data-icon="lucide:facebook" data-width="16"></span> Facebook
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="iconify" data-icon="lucide:twitter" data-width="16"></span> X
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                        <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Editorial Header -->
+    <header class="pt-48 pb-20 px-6 text-center max-w-5xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-semibold tracking-tighter text-white leading-[0.9] mb-6 fade-up">
+            Insights & <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500">Musings.</span>
+        </h1>
+        <p class="text-lg text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed fade-up" style="transition-delay: 0.1s;">
+            Articles written by Samson Iron, originally published on Medium, exploring the intersection of visual design, biomimicry, and road safety.
+        </p>
+    </header>
+
+    <!-- Blog Posts Grid -->
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Post 1: Navigating the Chaos -->
+            <article class="group flex flex-col justify-between border border-white/5 bg-neutral-900/10 p-6 rounded-lg hover:border-[#ea580c]/50 transition-colors fade-up">
+                <div>
+                    <div class="aspect-video w-full rounded-md overflow-hidden mb-6 relative">
+                        <img src="named/Blog post by Samson Iron (Navigating the Chaos).png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Navigating the Chaos">
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-[#ea580c] mb-4">
+                        <span>Design Strategy</span>
+                        <span>•</span>
+                        <span>May 12, 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold tracking-tight text-white mb-3 group-hover:text-[#ea580c] transition-colors">
+                        Navigating the Chaos
+                    </h2>
+                    <p class="text-neutral-400 font-light text-sm leading-relaxed mb-6">
+                        How visual hierarchy and clear brand structures can help modern organizations cut through the digital noise and communicate effectively during times of uncertainty.
+                    </p>
+                </div>
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wider text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 mt-auto">
+                    Read on Medium
+                    <span class="iconify" data-icon="lucide:arrow-up-right" data-width="14"></span>
+                </a>
+            </article>
+
+            <!-- Post 2: How Animals could inspire smart phones -->
+            <article class="group flex flex-col justify-between border border-white/5 bg-neutral-900/10 p-6 rounded-lg hover:border-[#ea580c]/50 transition-colors fade-up" style="transition-delay: 0.1s;">
+                <div>
+                    <div class="aspect-video w-full rounded-md overflow-hidden mb-6 relative">
+                        <img src="named/Blog post written by Samson Iron (How Animals could inspire the smart phones of the future).png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Animal inspiration">
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-[#ea580c] mb-4">
+                        <span>Biomimicry &amp; Tech</span>
+                        <span>•</span>
+                        <span>April 28, 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold tracking-tight text-white mb-3 group-hover:text-[#ea580c] transition-colors">
+                        How Animals Could Inspire the Smart Phones of the Future
+                    </h2>
+                    <p class="text-neutral-400 font-light text-sm leading-relaxed mb-6">
+                        Exploring nature's most advanced evolutionary adaptations and how biological engineering can inspire the next generation of mobile user interfaces and hardware.
+                    </p>
+                </div>
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wider text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 mt-auto">
+                    Read on Medium
+                    <span class="iconify" data-icon="lucide:arrow-up-right" data-width="14"></span>
+                </a>
+            </article>
+
+            <!-- Post 3: Cat's Eyes and Road Safety -->
+            <article class="group flex flex-col justify-between border border-white/5 bg-neutral-900/10 p-6 rounded-lg hover:border-[#ea580c]/50 transition-colors fade-up">
+                <div>
+                    <div class="aspect-video w-full rounded-md overflow-hidden mb-6 relative">
+                        <img src="named/Blog post written by Samson Iron (The Cats Eyes and Road Safety).png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cat's eyes">
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-[#ea580c] mb-4">
+                        <span>Social Design / Safety</span>
+                        <span>•</span>
+                        <span>March 15, 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold tracking-tight text-white mb-3 group-hover:text-[#ea580c] transition-colors">
+                        The Cat's Eyes and Road Safety
+                    </h2>
+                    <p class="text-neutral-400 font-light text-sm leading-relaxed mb-6">
+                        A deep dive into visual safety cues, retroreflective principles, and how strategic design choices can save lives on municipal roadways.
+                    </p>
+                </div>
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wider text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 mt-auto">
+                    Read on Medium
+                    <span class="iconify" data-icon="lucide:arrow-up-right" data-width="14"></span>
+                </a>
+            </article>
+
+            <!-- Post 4: The Waggle Dance -->
+            <article class="group flex flex-col justify-between border border-white/5 bg-neutral-900/10 p-6 rounded-lg hover:border-[#ea580c]/50 transition-colors fade-up" style="transition-delay: 0.1s;">
+                <div>
+                    <div class="aspect-video w-full rounded-md overflow-hidden mb-6 relative">
+                        <img src="named/Blog post written by Samson Iron (The waggle dance).png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Waggle dance">
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-[#ea580c] mb-4">
+                        <span>Communication</span>
+                        <span>•</span>
+                        <span>Feb 10, 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold tracking-tight text-white mb-3 group-hover:text-[#ea580c] transition-colors">
+                        The Waggle Dance
+                    </h2>
+                    <p class="text-neutral-400 font-light text-sm leading-relaxed mb-6">
+                        Decoding honeybee communication systems and applying their highly efficient decentralized network protocols to modern digital interface layouts.
+                    </p>
+                </div>
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wider text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 mt-auto">
+                    Read on Medium
+                    <span class="iconify" data-icon="lucide:arrow-up-right" data-width="14"></span>
+                </a>
+            </article>
+
+            <!-- Post 5: Empowering First Responders -->
+            <article class="group flex flex-col justify-between border border-white/5 bg-neutral-900/10 p-6 rounded-lg hover:border-[#ea580c]/50 transition-colors fade-up md:col-span-2 md:max-w-xl md:mx-auto w-full">
+                <div>
+                    <div class="aspect-video w-full rounded-md overflow-hidden mb-6 relative">
+                        <img src="named/Blog posts published on Empowering First responders in uganda Written by samson Iron.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="First Responders">
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-[#ea580c] mb-4">
+                        <span>Social Impact</span>
+                        <span>•</span>
+                        <span>Jan 20, 2026</span>
+                    </div>
+                    <h2 class="text-2xl font-bold tracking-tight text-white mb-3 group-hover:text-[#ea580c] transition-colors">
+                        Empowering First Responders in Uganda
+                    </h2>
+                    <p class="text-neutral-400 font-light text-sm leading-relaxed mb-6">
+                        A case study on building vital training manuals, campaign flyers, and educational branding to support first responder logistics in local sub-regions.
+                    </p>
+                </div>
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wider text-white hover:text-[#ea580c] transition-colors flex items-center gap-2 mt-auto">
+                    Read on Medium
+                    <span class="iconify" data-icon="lucide:arrow-up-right" data-width="14"></span>
+                </a>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase text-white flex items-center gap-1">
+                    SAMSON IRON<span class="text-[#ea580c]">.</span>
+                </a>
+                <p class="text-neutral-500 text-xs flex items-center gap-1">
+                    <span class="iconify text-[#ea580c]" data-icon="lucide:map-pin" data-width="12"></span> Kampala, Uganda
+                </p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span class="iconify" data-icon="lucide:facebook" data-width="14"></span> Facebook
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span class="iconify" data-icon="lucide:twitter" data-width="14"></span> X
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span class="iconify" data-icon="lucide:linkedin" data-width="14"></span> LinkedIn
+                </a>
+            </div>
+
+            <p class="text-neutral-600 text-xs">© 2026 SAMSON IRON. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Dropdown Toggle (Original mobile logic)
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+                        setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                    } else {
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                        }, 300);
+                    }
+                });
+                
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('opacity-0');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                        }, 300);
+                    });
+                });
+            }
+
+            // Desktop Viewport Overlay Menu Toggle (New premium desktop logic)
+            const desktopBtn = document.getElementById('desktop-menu-btn');
+            const viewportMenu = document.getElementById('viewport-menu');
+            const viewportCloseBtn = document.getElementById('viewport-menu-close');
+            
+            if (desktopBtn && viewportMenu) {
+                desktopBtn.addEventListener('click', () => {
+                    viewportMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                    viewportMenu.classList.add('opacity-100', 'translate-y-0');
+                    document.body.style.overflow = 'hidden'; // lock scroll
+                });
+            }
+            
+            function closeViewportMenu() {
+                if (viewportMenu) {
+                    viewportMenu.classList.remove('opacity-100', 'translate-y-0');
+                    viewportMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                    document.body.style.overflow = ''; // restore scroll
+                }
+            }
+            
+            if (viewportCloseBtn) {
+                viewportCloseBtn.addEventListener('click', closeViewportMenu);
+            }
+            
+            if (viewportMenu) {
+                viewportMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeViewportMenu);
+                });
+            }
+
+            // Scroll Animation Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
